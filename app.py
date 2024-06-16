@@ -6,7 +6,7 @@ from train import training as start_training
 from ner.pipeline.prediction_pipeline import ModelPredictor
 from ner.constants import *
 
-#updated
+#updated app
 app = FastAPI()
 
 origins = ["*"]
