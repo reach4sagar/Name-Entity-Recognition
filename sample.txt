@@ -1,0 +1,38 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/base:current
+    resource_class: ineuron/nernlpbert
+    steps:
+      - run: echo "Hi I'm on a Container Runner!"
+workflows:
+  build-workflow:
+    jobs:
+      - build
+
+
+version: 2.1
+workflows:
+  testing:
+    jobs:
+      - runner-test
+jobs:
+  runner-test:
+    machine: true
+    resource_class: ineuron/nernlpbert
+    steps:
+      - run: echo "Hi I'm on Runners!"
+
+
+asia-south1-docker.pkg.dev/nomadic-talon-431213-c2/ner-bert
+
+
+
+api:
+    auth_token: CCIPAT_FegCFvzXEEWCRbRTHmNVPM_93ec5a14071210cbcf4bf80f2c8bdf24fe7597a8
+
+runner:
+    name: self-hosted
+    working_directory: /var/opt/circleci/workdir
+    cleanup_working_directory: true
